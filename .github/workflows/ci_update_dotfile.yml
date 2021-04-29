@@ -1,0 +1,14 @@
+name: CI_UPDATE_DOTFILE
+on:
+  schedule:
+    - cron: '30 6 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "." >> dotflie
+          git add dotfile
+          git commit -m "update dotfile"
+          git push
