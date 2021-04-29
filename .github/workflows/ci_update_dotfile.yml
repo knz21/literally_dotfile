@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          git config user.name knz21
-          git config user.email cismollre@gmail.com
+          git config --global user.name knz21
+          git config --global user.email cismollre@gmail.com
           echo "." >> dotflie
           git add dotfile
           git commit -m "update dotfile"
