@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           echo "." >> dotflie
+          git config user.name knz21
+          git config user.email cismollre@gmail.com
           git add dotfile
           git commit -m "update dotfile"
           git push
