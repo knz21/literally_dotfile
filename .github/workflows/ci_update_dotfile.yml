@@ -1,7 +1,7 @@
 name: CI_UPDATE_DOTFILE
 on:
   schedule:
-    - cron: '0,15,30,45 * * * *'
+    - cron: '0 2-5/3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
