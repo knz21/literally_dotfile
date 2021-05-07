@@ -5,13 +5,14 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    if: ${{ $RANDOM % 3 == 0 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
           git config --global user.name knz21
           git config --global user.email cismollre@gmail.com
-          [ $(($RANDOM % 3)) -eq 0 ] && echo "." >> dotfile
+          echo "." >> dotfile
           git add dotfile
           git commit -m "update dotfile"
           git push
