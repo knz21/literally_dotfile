@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: Roll dice
+      - id: random
         run: echo "PROCEED=$((RANDOM%3))" >> $GITHUB_ENV
         shell: bash
 
