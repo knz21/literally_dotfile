@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: random
-        run: echo "PROCEED=$((RANDOM%3))" >> $GITHUB_ENV
+        run: echo "PROCEED=$((RANDOM%3>0))" >> $GITHUB_ENV
         shell: bash
 
-      - if: env.PROCEED > 0
+      - if: env.PROCEED
         name: Cancelling
         uses: andymckay/cancel-action@0.2
 
-      - if: env.PROCEED > 0
+      - if: env.PROCEED
         name: Waiting for cancellation
         run: sleep 60
       
