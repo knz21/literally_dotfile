@@ -5,19 +5,20 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    if: $(shuf -i 0-2 -n 1) % 2 == 1
     runs-on: ubuntu-latest
     steps:
-      - id: random
-        run: echo "PROCEED=$((RANDOM%3>0))" >> $GITHUB_ENV
-        shell: bash
+#       - id: random
+#         run: echo "PROCEED=$((RANDOM%3>0))" >> $GITHUB_ENV
+#         shell: bash
 
-      - if: env.PROCEED
-        name: Cancelling
-        uses: andymckay/cancel-action@0.2
+#       - if: env.PROCEED
+#         name: Cancelling
+#         uses: andymckay/cancel-action@0.2
 
-      - if: env.PROCEED
-        name: Waiting for cancellation
-        run: sleep 60
+#       - if: env.PROCEED
+#         name: Waiting for cancellation
+#         run: sleep 60
       
       - uses: actions/checkout@v2
       - run: |
